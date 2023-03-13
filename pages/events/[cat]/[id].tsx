@@ -7,7 +7,7 @@ export default Page;
 
 export async function getStaticProps(context: any) {
   console.log(context);
-  const { allEvents } = await import('/data/data.json')
+  const { allEvents } = await import('@/data/data.json')
   const id = context.params.id;
   const data = allEvents.find((ev: any) => ev.id === id)
 
@@ -18,7 +18,7 @@ export async function getStaticProps(context: any) {
 }
 
 export async function getStaticPaths() {
-  const data = await import('/data/data.json')
+  const data = await import('@/data/data.json')
   const { allEvents } = data;
   const allPaths = allEvents.map((path: any) => {
     return {
